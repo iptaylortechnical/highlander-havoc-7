@@ -69,7 +69,7 @@ public class engine {
 		
 		while(!Display.isCloseRequested()){
 			
-			glClearColor(.1f,.5f,.2f,.8f);
+			glClearColor(.3f, .3f,.3f,.8f);
 			glClear(GL_COLOR_BUFFER_BIT);
 			
 			s.back(0);

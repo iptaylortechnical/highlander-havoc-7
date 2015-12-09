@@ -46,9 +46,9 @@ public abstract class Gun implements Controllable, Shooter, Damagable {
 	public double[][] update(){
 		
 		if(shieldEnabled){
-			shieldCount++;
-			if(shieldCount > shieldTotal){
-				shieldCount = 0;
+			shieldCount--;
+			if(shieldCount < 0){
+				shieldCount = shieldTotal;
 				shieldEnabled = false;
 			}
 		}
@@ -152,11 +152,13 @@ public abstract class Gun implements Controllable, Shooter, Damagable {
 	public void dock(){
 		if(!shieldEnabled){
 			damage -= pointsPerHit;
+		}else{
+			damage -= pointsPerHit/4;
 		}
 	}
 	
 	public void enableShield(){
-		shieldCount = 0;
+		shieldCount += shieldTotal;
 		shieldEnabled = true;
 	}
 	
